@@ -47,7 +47,11 @@ with open(schw_export_file, "r", newline="", encoding="utf-8") as src_csv_file:
     src_csv_data = []
     for row in csv_reader:
         # Positions settings must include the following columns
-        ticker, shares, cost = row["Symbol"], row["Quantity"], row["Cost/Share"][1:]
+        try:
+            ticker, shares, cost = row["Symbol"], row["Quantity"], row["Cost/Share"][1:]
+        except KeyError as e:
+            print("\nerror: the following column was not found: {}\n".format(e))
+            sys.exit(1)
         src_csv_data.append([ticker, shares, cost])
 
 with open(tyd_import_file, "w", newline="", encoding="utf-8") as dst_csv_file:
