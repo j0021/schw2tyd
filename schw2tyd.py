@@ -29,9 +29,14 @@
 import csv
 import sys
 
-schw_export_file = "schw_export.csv"
-tyd_import_file = "tyd_import.csv"
+if len(sys.argv) != 2:
+    print("Usage: \n\n schw2tyd.py <schwab csv export file>\n")
+    sys.exit(0)
 
+schw_export_file = "schw_export.csv" # cleaned csv export file name, created by the script
+tyd_import_file = "tyd_import.csv" # file to use to bulk upload to Track Your Dividends
+
+# This is to clean up the first 2 and last 2 lines of the schwab csv export file
 with open(sys.argv[1], "r", newline="", encoding="utf-8") as raw_csv_file:
     raw_csv_data = raw_csv_file.readlines()
     with open(schw_export_file, "w", newline="", encoding="utf-8") as src_csv_file:
@@ -41,6 +46,7 @@ with open(schw_export_file, "r", newline="", encoding="utf-8") as src_csv_file:
     csv_reader = csv.DictReader(src_csv_file)
     src_csv_data = []
     for row in csv_reader:
+        # Positions settings must include the following columns
         ticker, shares, cost = row["Symbol"], row["Quantity"], row["Cost/Share"][1:]
         src_csv_data.append([ticker, shares, cost])
 
