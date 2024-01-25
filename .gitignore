@@ -1,1 +1,5 @@
 *.csv
+venv
+build
+dist
+*egg*
