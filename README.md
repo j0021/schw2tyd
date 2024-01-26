@@ -22,6 +22,6 @@ python setup.py install
 schw2tyd <schwab csv export file>
 ```
 
-This will generate ***tyd_import.csv*** file that can be use to bulk upload to Track Your Dividends.
+This will generate ***tyd_import.csv*** file that can be used to bulk upload to Track Your Dividends.
 
-**NOTE**: Positions settings must include ***Symbol***, ***Quantity***, abd ***Cost/Share*** columns before exporting from Charles Schwab. 
+**NOTE**: Positions settings must include ***Symbol***, ***Quantity***, and ***Cost/Share*** columns before exporting from Charles Schwab. 
