@@ -24,4 +24,4 @@ schw2tyd <schwab csv export file>
 
 This will generate ***tyd_import.csv*** file that can be used to bulk upload to Track Your Dividends.
 
-**NOTE**: Positions settings must include ***Symbol***, ***Quantity***, ***Cost/Share***, and ***Dividend Yield** columns before exporting from Charles Schwab. 
+**NOTE**: Positions settings must include ***Symbol***, ***Quantity***, ***Cost/Share***, and ***Dividend Yield*** columns before exporting from Charles Schwab. 
