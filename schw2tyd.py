@@ -25,8 +25,11 @@ def main():
         csv_reader = csv.DictReader(src_csv_file)
         src_csv_data = []
         for row in csv_reader:
-            # Positions settings must include the following columns
             try:
+                # filter out non-dividend paying stocks
+                if row["Dividend Yield"] == "N/A":
+                    continue
+                # fields to export
                 ticker, shares, cost = row["Symbol"], row["Quantity"], row["Cost/Share"][1:]
             except KeyError as e:
                 print("\nerror: the following column was not found: {}\n".format(e))
